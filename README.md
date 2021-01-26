@@ -1,5 +1,5 @@
 # SWMaestro 코딩 테스트 대비를 위한 문제 풀이
-12기, 13기 SWMaestro 코딩 테스트 대비를 위한 문제들을 풀고 저장하는 Repo입니다.
+SWMaestro 코딩 테스트 대비를 위한 문제들을 풀고 저장하는 Repo입니다.
 SWMaestro는 매 기수마다 코딩 테스트 유형이 달라지거나, 달라지지 않을 수 있습니다.
 현재 12기 모집 공고 및 Repo를 쓰고있는 시점 기준 알고리즘 3문제, DB / Web 문제가 하나씩 출제됩니다.
 변경 사항이 생긴다면 이 README 문서에도 반영할 예정입니다.
@@ -44,6 +44,7 @@ SWMaestro는 매 기수마다 코딩 테스트 유형이 달라지거나, 달라
 =========================================================================
 
 이후 종만북(알고리즘 문제풀이 해결전략) - https://book.naver.com/bookdb/book_detail.nhn?bid=7058764
+
 옵션으로 노란책(프로그래밍 콘테스트 챌린징) - https://book.naver.com/bookdb/book_detail.nhn?bid=6750543
 #### BOJ 길라잡이 베타 1, 2
 
@@ -59,4 +60,24 @@ https://www.acmicpc.net/workbook/view/2419
 
 자료구조, 알고리즘 관련 문제들 중 난이도 Easy, Medium 문제들 풀기
 
-Keep Writing.......
+## DB
+DB는 MySQL의 기본 문법을 잘 숙지해서 문제에서 요구하는 데이터를 쿼리문으로 잘 뽑아낼 수 있는지 평가합니다.
+
+### 인터넷 참고자료
+https://www.w3schools.com/sql/
+
+### 프로그래머스
+https://programmers.co.kr/learn/challenges
+level 1 ~ 3을 완전히 이해하고 풀 정도로 숙달하는게 목표.
+
+## Web
+Web은 HTML5, CSS, JavaScript의 기초지식과 더불어 Ajax의 fetch API를 이용하여 데이터를 Parsing  할 수 있는지를 평가합니다.
+
+### 인터넷 참고자료
+https://poiemaweb.com/
+
+https://ko.javascript.info
+
+### TestDome 
+https://www.testdome.com/tests
+외국 OJ 사이트인데, 여기서 HTML/CSS and JavaScript 문제를 푸는 수준까지 공부하면 될 듯 합니다.
