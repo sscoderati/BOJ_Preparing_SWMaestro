@@ -65,6 +65,7 @@ DB는 MySQL의 기본 문법을 잘 숙지해서 문제에서 요구하는 데�
 
 ### 인터넷 참고자료
 https://www.w3schools.com/sql/
+영어로 되어있지만 퀄리티는 좋은 것 같습니다.
 
 ### 프로그래머스
 https://programmers.co.kr/learn/challenges
@@ -75,8 +76,10 @@ Web은 HTML5, CSS, JavaScript의 기초지식과 더불어 Ajax의 fetch API를 
 
 ### 인터넷 참고자료
 https://poiemaweb.com/
+프론트엔드 및 약간의 백엔드 지식을 배울 수 있습니다.
 
 https://ko.javascript.info
+JavaScript 참고자료
 
 ### TestDome 
 https://www.testdome.com/tests
