@@ -9,8 +9,7 @@ for i in range(n):
     x, y = map(int, input().strip().split())
     coordinate[i] = x, y
 
-coordinate.sort(key = lambda x:x[0])
-coordinate.sort(key = lambda x:x[1])
+coordinate.sort(key = lambda x:(x[0], x[1]))
 
 for i in range(n):
     print(*coordinate[i])
