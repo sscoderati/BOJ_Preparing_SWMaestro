@@ -1,6 +1,3 @@
-#import sys
-#input = sys.stdin.readline
-
 n = int(input())
 k = int(input())
 data = [[0] * (n + 1) for _ in range(n + 1)]
@@ -32,6 +29,7 @@ def simulate():
     time = 0
     index = 0
     q = [(x, y)]
+
     while True:
         nx = x + dx[direction]
         ny = y + dy[direction]
@@ -49,7 +47,7 @@ def simulate():
             break
         x, y = nx, ny
         time += 1
-        if index < 1 and time == info[index][0]:
+        if index < l and time == info[index][0]:
             direction = turn(direction, info[index][1])
             index += 1
     return time
