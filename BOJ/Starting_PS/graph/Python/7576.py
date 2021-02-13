@@ -15,9 +15,7 @@ for i in range(n):
             q.append((i, j))
 
 def bfs():
-    cnt = 0
     while q:
-        cnt += 1
         x, y = q.popleft()
         for i in range(4):
             nx = x + dx[i]
