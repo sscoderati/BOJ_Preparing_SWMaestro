@@ -61,7 +61,7 @@ https://www.acmicpc.net/workbook/view/2419
 자료구조, 알고리즘 관련 문제들 중 난이도 Easy, Medium 문제들 풀기
 
 ## DB
-DB는 MySQL의 기본 문법을 잘 숙지해서 문제에서 요구하는 데이터를 쿼리문으로 잘 뽑아낼 수 있는지 평가합니다.
+DB는 MySQL의 기본 문법을 잘 숙지해서 문제에서 요구하는 데이터를 쿼리문으로 잘 추출해 낼 수 있는지 평가합니다.
 
 ### 인터넷 참고자료
 https://www.w3schools.com/sql/
