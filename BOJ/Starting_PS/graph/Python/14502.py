@@ -24,7 +24,7 @@ def dfs(lab, y, x):
         nx = x + dx[i]
         ny = y + dy[i]
         if 0 <= ny < n and 0 <= nx < m and lab[ny][nx] == 0:
-            dfs(lab, dy, dx)
+            dfs(lab, ny, nx)
 result = 0
 
 for c in combinations(space, 3):
