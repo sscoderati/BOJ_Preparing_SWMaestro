@@ -9,6 +9,6 @@ for _ in range(T):
     score[1][1] += score[0][0]
 
     for i in range(2, n):
-        score[0][i] = max(score[1][i - 1], score[1][i - 2])
-        score[1][i] = max(score[0][i - 1], score[0][i - 2])
+        score[0][i] += max(score[1][i - 1], score[1][i - 2])
+        score[1][i] += max(score[0][i - 1], score[0][i - 2])
     print(max(score[0][n - 1], score[1][n - 1]))
