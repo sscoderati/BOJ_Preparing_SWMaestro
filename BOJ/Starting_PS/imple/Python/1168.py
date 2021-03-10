@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 n, k = map(int, input().split())
 tree = [0] * (4 * n)
 
@@ -15,7 +12,7 @@ def init(node, s, e):
 def update(node, s, e, i):
     tree[node] -= 1
     if s == e:
-        return 0
+        return False
     else:
         m = (s + e) // 2
         if i <= m:
