@@ -12,13 +12,13 @@ def init(node, s, e):
 def update(node, s, e, i):
     tree[node] -= 1
     if s == e:
-        return False
+        pass
     else:
         m = (s + e) // 2
         if i <= m:
-            return update(node * 2, s, m, i)
+            update(node * 2, s, m, i)
         else:
-            return update(node * 2 + 1, m + 1, e, i)
+            update(node * 2 + 1, m + 1, e, i)
 
 def query(node, s, e, o):
     if s == e:
@@ -26,13 +26,13 @@ def query(node, s, e, o):
     m = (s + e) // 2
     if o <= tree[node * 2]:
         return query(node * 2, s, m, o)
-    else:
+    if tree[node * 2] < o:
         return query(node * 2 + 1, m + 1, e, o - tree[node * 2])
 
 
 init(1, 1, n)
 idx = 1
-print("<",end='')
+print("<", end='')
 for i in range(n):
     size = n - i
     idx += k - 1
