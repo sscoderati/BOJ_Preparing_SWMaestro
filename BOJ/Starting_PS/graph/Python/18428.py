@@ -42,6 +42,7 @@ def watch(x, y, direction):
                 return True
             if board[x][y] == 'O':
                 return False
+            x += 1
     return False
 
 def process():
