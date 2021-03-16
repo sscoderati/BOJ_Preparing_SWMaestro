@@ -4,26 +4,26 @@ input = sys.stdin.readline
 color = {}
 N, M = map(int, input().split())
 graph = [list(input().strip()) for _ in range(N)]
-visited = [[0 for _ in range(M)] for _ in range(N)]
+visited = [[False] * M for _ in range(N)]
 answer = False
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
-def findCycle(x, y, prev_x, prev_y):
-    visited[x][y] = 1
+def findCycle(x, y, cnt):
+    visited[x][y] = True
 
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        if nx < 0 or nx >= N or ny < 0 or ny >= M:
+        if nx < 0 or nx >= N or ny < 0 or ny >= M or graph[nx][ny] != graph[x][y]:
             continue
-        elif graph[nx][ny] != graph[x][y]:
-            continue
-        elif visited[nx][ny] == 0:
-            if findCycle(nx, ny, x, y):
+        if not visited[nx][ny]:
+            visited[nx][ny] = True
+            findCycle(nx, ny, cnt + 1)
+            visited[nx][ny] = False
+        else:
+            if cnt >= 4 and x == nx and y == ny:
                 return True
-        elif prev_x != nx or prev_y != ny:
-            return True
     return False
 
 for i in range(N):
@@ -32,7 +32,7 @@ for i in range(N):
 
 for value in color.values():
     x, y = value
-    if findCycle(x, y, -1, -1):
+    if findCycle(x, y, 1):
         answer = True
         break
 
