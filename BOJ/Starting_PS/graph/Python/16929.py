@@ -1,7 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-color = {}
 N, M = map(int, input().split())
 graph = [list(input().strip()) for _ in range(N)]
 visited = [[False] * M for _ in range(N)]
@@ -10,8 +9,9 @@ dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
 def findCycle(x, y, cnt):
-    visited[x][y] = True
-
+    global cx, cy, answer
+    if answer:
+        return
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
@@ -22,21 +22,18 @@ def findCycle(x, y, cnt):
             findCycle(nx, ny, cnt + 1)
             visited[nx][ny] = False
         else:
-            if cnt >= 4 and x == nx and y == ny:
-                return True
-    return False
+            if cnt >= 4 and cx == nx and cy == ny:
+                answer = True
+                return
 
 for i in range(N):
     for j in range(M):
-        color.setdefault(graph[i][j], (i, j))
+        if not visited[i][j]:
+            cx, cy = i, j
+            visited[i][j] = True
+            findCycle(i, j, 1)
+        if answer:
+            print('Yes')
+            sys.exit()
 
-for value in color.values():
-    x, y = value
-    if findCycle(x, y, 1):
-        answer = True
-        break
-
-if answer:
-    print('Yes')
-else:
-    print('No')
+print('No')
