@@ -6,12 +6,17 @@ m = int(input())
 if m == 0:
     button = set()
 else:
-    malbutton = set(map(int, input().split()))
-    button = set(x for x in range(10)).difference(malbutton)
+    malbutton = set(input().split())
+    button = set(str(x) for x in range(10)).difference(malbutton)
 
 channel = abs(target - 100)
 for i in range(1000001):
-    a = set(list(str(i)))
-    if not button & a:
+    flag = True
+    for j in str(i):
+        if j not in button:
+            flag = False
+            break
+    if flag:
         channel = min(channel, len(str(i)) + abs(target - i))
+
 print(channel)
