@@ -4,58 +4,44 @@ input = sys.stdin.readline
 n, k = map(int, input().split())
 
 seg = [0] * (4 * n)
+r = []
 
-def sum(i):
-    res = 0
-    while i > 0:
-        res += seg[i]
-        i -= (i & -i)
-    return res
+def update(pos, val, node, x, y):
+    if pos < x or y < pos:
+        return seg[node]
+    if x == y:
+        return seg[node]
+    m = (x + y) // 2
+    seg[node] = update(pos, val, node * 2, x, m) + update(pos, val, node * 2 + 1, m + 1, y)
+    return seg[node]
 
-def update(i, diff):
-    while i <= n:
-        seg[i] += diff
-        i += (i & -i)
+def query(val, node, x, y):
+    if x == y:
+        return x
+    m = (x + y) // 2
+    if seg[node * 2] >= val:
+        return query(val, node * 2, x, m)
+    else:
+        return query(val - seg[node * 2], node * 2 + 1, m + 1, y)
 
-def cnt(i, j):
-    j %= n
-    if not j:
-        j = n
-    if j >= i:
-        return sum(j) - sum(i)
-    return sum(n) - sum(i) + sum(j)
-
+def squery(lo, hi, node, x, y):
+    if y < lo or hi < x:
+        return False
+    if lo <= x and y <= hi:
+        return seg[node]
+    m = (x + y) // 2
+    return squery(lo, hi, node * 2, x, m) + squery(lo, hi, node * 2 + 1, m + 1, y)
 
 for i in range(1, n + 1):
-    update(i, 1)
-r = [k]
-update(k, -1)
-c = k
-l = n-1
-while l > 0:
-    s = c + 1
-    e = c + n
-    while s < e:
-        m = (s + e) >> 1
-        v = cnt(c, m)
-        mod = k % l
-
-        if not mod:
-            mod = l
-
-        if v < mod:
-            s = m + 1
-        elif v == mod:
-            e = m
-        else:
-            e = m - 1
-    s %= n
-    if s == 0:
-        s = n
-
-    r.append(s)
-    c = s
-    update(s, -1)
-    l -= 1
-
+    update(i, 1, 1, 1, n)
+mod = n - 1
+r.append(k)
+update(k, 0, 1, 1, n)
+for i in range(2, n + 1):
+    x = (squery(1, r[-1], 1, 1, n) + k) % mod
+    if not x:
+        x = mod
+    r.append(query(x, 1, 1, n))
+    update(r[-1], 0, 1, 1, n)
+    mod -= 1
 print('<', ', '.join(map(str, r)), '>', sep='')
